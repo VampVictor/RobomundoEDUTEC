@@ -1,0 +1,217 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.pagina-tipos {
+    position: relative;
+    width: 100%;
+    height: 346.8rem;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: #f9fcff;
+}
+
+.pagina-tipos > h1 {
+    position: absolute;
+    top: 6.1rem;
+    left: 50%;
+    width: 73.7rem;
+    transform: translateX(-50%);
+    color: #1b3f5f;
+    font-size: 9.6rem;
+    font-weight: 700;
+    line-height: 9rem;
+    text-align: center;
+}
+
+
+.tipo {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 40.2rem;
+}
+
+.faixa {
+    position: absolute;
+    top: 2.6rem;
+    width: 84.8rem;
+    height: 34.6rem;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+}
+
+.tipo-esquerda .faixa {
+    left: 0;
+}
+
+.tipo-direita .faixa {
+    right: 0;
+}
+
+.conteudo-tipo {
+    position: absolute;
+    z-index: 2;
+    width: 55.1rem;
+}
+
+.conteudo-tipo h2 {
+    color: #1b3f5f;
+    font-size: 4.8rem;
+    font-weight: 700;
+    line-height: 5rem;
+}
+
+.descricao {
+    font-size: 2.4rem;
+    line-height: 3rem;
+}
+
+.exemplos {
+    margin-top: 2rem;
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: 3.5rem;
+}
+
+.imagem-tipo {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    object-fit: cover;
+    background-color: #ffffff;
+    border: 0.1rem solid #000000;
+    border-radius: 50%;
+}
+
+
+.tipo-esquerda .conteudo-tipo {
+    top: 4.7rem;
+    left: 4.5rem;
+}
+
+.tipo-esquerda .conteudo-tipo h2 {
+    margin-bottom: 0.7rem;
+}
+
+.tipo-esquerda .imagem-tipo {
+    left: 58.4rem;
+    width: 39.7rem;
+    height: 39.7rem;
+}
+
+
+.tipo-direita .conteudo-tipo {
+    top: 4.7rem;
+    right: 4.5rem;
+}
+
+.tipo-direita .conteudo-tipo h2 {
+    margin-bottom: 1.4rem;
+}
+
+.tipo-direita .imagem-tipo {
+    right: 61.6rem;
+    width: 39.8rem;
+    height: 40.2rem;
+}
+
+
+.industrial {
+    top: 21.8rem;
+}
+
+.industrial .faixa {
+    background-color: #bdb8ff;
+}
+
+.industrial .conteudo-tipo {
+    top: 5.9rem;
+}
+
+.industrial .conteudo-tipo h2 {
+    margin-bottom: 1.8rem;
+}
+
+.industrial .descricao {
+    margin-left: 0.4rem;
+}
+
+.servico {
+    top: 66.4rem;
+}
+
+.servico .faixa {
+    background-color: #d5ffd2;
+}
+
+.servico .conteudo-tipo {
+    top: 6.9rem;
+    right: 4.9rem;
+    left: auto;
+}
+
+.servico .conteudo-tipo h2 {
+    margin-bottom: 1.8rem;
+}
+
+.servico .descricao {
+    margin-left: 0.4rem;
+}
+
+.medico {
+    top: 111.5rem;
+}
+
+.medico .faixa {
+    background-color: #b8eeff;
+}
+
+.medico .descricao,
+.humanoide .descricao,
+.educacional .descricao {
+    font-size: 2.3rem;
+}
+
+.explorador {
+    top: 156.1rem;
+}
+
+.explorador .faixa {
+    background-color: #fffcd2;
+}
+
+.explorador .conteudo-tipo {
+    top: 4.1rem;
+}
+
+.humanoide {
+    top: 201.2rem;
+}
+
+.humanoide .faixa {
+    background-color: #fdb8ff;
+}
+
+.seguranca {
+    top: 245.8rem;
+}
+
+.seguranca .faixa {
+    background-color: #ffd2d2;
+}
+
+.seguranca .conteudo-tipo h2 {
+    margin-bottom: 2.1rem;
+}
+
+.educacional {
+    top: 290.9rem;
+}
+
+.educacional .faixa {
+    background-color: #b8caff;
+}

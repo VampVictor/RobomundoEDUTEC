@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    color: #111111;
+    background-color: #f9fcff;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    width: calc(100% - 8rem);
+    max-width: 118rem;
+    margin: 0 auto;
+}
+
+
+.cabecalho {
+    height: 13.4rem;
+    background-color: #ffffff;
+    box-shadow: 0 0.4rem 1rem #d3eafe;
+}
+
+.cabecalho-conteudo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 30rem;
+    height: 10rem;
+    object-fit: contain;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.menu a {
+    color: #1b3f5f;
+    font-size: 1.8rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.menu a:hover {
+    color: #087bff;
+}
+
+
+.inicio {
+    min-height: 58.3rem;
+    background-color: #f9fcff;
+}
+
+.inicio-conteudo {
+    min-height: 58.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inicio-texto {
+    width: 59rem;
+}
+
+.inicio-texto h1 {
+    max-width: 68rem;
+    margin-bottom: 3.5rem;
+    color: #1b3f5f;
+    font-size: 7.2rem;
+    line-height: 1.08;
+}
+
+.inicio-texto p {
+    margin-bottom: 2.4rem;
+    font-size: 2rem;
+    line-height: 1.55;
+}
+
+.robo-inicio {
+    width: 46.5rem;
+    height: 58.3rem;
+    object-fit: contain;
+    object-position: center bottom;
+}
+
+
+.conteudo-principal {
+    min-height: 89rem;
+    padding: 8.8rem 0 5.6rem;
+    background-color: #ffffff;
+    border-top: 0.1rem solid #eeeeee;
+}
+
+.apresentacao {
+    position: relative;
+    min-height: 25.4rem;
+    padding: 6.5rem 6rem 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eef5ff;
+    border: 0.2rem solid #e6e6e6;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.apresentacao p {
+    max-width: 107rem;
+    font-size: 2.3rem;
+    font-weight: 500;
+    line-height: 2;
+}
+
+.icone-apresentacao,
+.icone-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9bd5ff;
+    border-radius: 50%;
+}
+
+.icone-apresentacao {
+    top: -5.8rem;
+    left: 50%;
+    width: 11.5rem;
+    height: 11.5rem;
+    transform: translateX(-50%);
+}
+
+.icone-apresentacao img {
+    width: 10.4rem;
+    height: 10.4rem;
+    object-fit: contain;
+}
+
+.cards {
+    margin-top: 11rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 5.4rem;
+}
+
+.card {
+    position: relative;
+    width: 35.3rem;
+    min-height: 38.2rem;
+    padding: 7.5rem 2.4rem 2.8rem;
+    color: #111111;
+    background-color: #ffffff;
+    border: 0.1rem solid #111111;
+    border-radius: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.card:hover {
+    border-color: #087bff;
+    box-shadow: 0 0.8rem 2rem rgba(8, 123, 255, 0.12);
+}
+
+.icone-card {
+    top: -6.4rem;
+    left: 50%;
+    width: 12.7rem;
+    height: 12.7rem;
+    transform: translateX(-50%);
+}
+
+.icone-card img {
+    width: 9.4rem;
+    height: 9.4rem;
+    object-fit: contain;
+}
+
+.card h2 {
+    margin-bottom: 2.2rem;
+    font-size: 3.8rem;
+    line-height: 1.15;
+}
+
+.card p {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+
+.equipe {
+    min-height: 46.9rem;
+    padding: 5rem 0 6.5rem;
+    background-color: #f9fcff;
+}
+
+.equipe-lista {
+    display: flex;
+    justify-content: center;
+    gap: 15.5rem;
+}
+
+.pessoa {
+    width: 33rem;
+    text-align: center;
+}
+
+.foto {
+    width: 24.8rem;
+    height: 24.8rem;
+    margin: 0 auto 2.2rem;
+    overflow: hidden;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pessoa h2 {
+    font-size: 2.8rem;
+    line-height: 1.3;
+}
+
+.pessoa a {
+    color: #3c09f4;
+    font-size: 2.7rem;
+    font-weight: 600;
+    text-decoration: none;
+}

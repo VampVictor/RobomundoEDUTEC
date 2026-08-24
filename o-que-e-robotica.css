@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.pagina-robotica {
+    width: 100%;
+    background-color: #f9fcff;
+}
+
+
+.robotica-banner {
+    position: relative;
+    width: 100%;
+    height: 53.3rem;
+    overflow: hidden;
+    background-color: #062250;
+}
+
+.imagem-banner {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.texto-banner {
+    position: absolute;
+    top: 8.7rem;
+    left: 5.3rem;
+    width: 45.2rem;
+    color: #ffffff;
+}
+
+.texto-banner h1 {
+    width: 44.8rem;
+    font-size: 8.5rem;
+    font-weight: 600;
+    line-height: 10rem;
+}
+
+.texto-banner p {
+    width: 45.2rem;
+    margin-top: 1.3rem;
+    color: #fffdfd;
+    font-size: 2.2rem;
+    line-height: 1.45;
+}
+
+
+.processo {
+    width: 100%;
+    height: 74.8rem;
+    padding: 6.5rem 5.3rem 0;
+    background-color: #f9fcff;
+}
+
+.processo > h2 {
+    width: 69.7rem;
+    margin-bottom: 1.6rem;
+    color: #1b3f5f;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 5rem;
+}
+
+.processo-introducao {
+    margin-bottom: 4.1rem;
+    color: #656565;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.etapas {
+    margin-left: 1.7rem;
+    display: grid;
+    grid-template-columns: repeat(4, 24rem);
+    gap: 6rem;
+}
+
+.etapa {
+    width: 24rem;
+    height: 24.2rem;
+    padding: 3.3rem 2.1rem 1.5rem;
+    background-color: #eef5ff;
+    border: 0.1rem solid #d3eafe;
+    border-top: 1.5rem solid #0874ff;
+    border-radius: 1rem;
+}
+
+.numero-etapa {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #0874ff;
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 4rem;
+}
+
+.etapa h3 {
+    margin-bottom: 1.2rem;
+    color: #1b3f5f;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 3.4rem;
+}
+
+.etapa p {
+    color: #656565;
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+.aviso {
+    width: 74.4rem;
+    height: 9.4rem;
+    margin: 7.8rem auto 0;
+    padding: 0 2.6rem 0 8.4rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: #ffffff;
+    border: 0.2rem dashed #0874ff;
+    border-radius: 1rem;
+}
+
+.icone-informacao {
+    position: absolute;
+    top: 2.7rem;
+    left: 2.4rem;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    background-color: #0874ff;
+    border-radius: 50%;
+    font-size: 2.1rem;
+    font-weight: 700;
+}
+
+.aviso p {
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+
+.galeria-robos {
+    position: relative;
+    width: 100%;
+    height: 83.2rem;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.texto-galeria {
+    position: absolute;
+    top: 7.7rem;
+    left: 6.2rem;
+    width: 28.6rem;
+}
+
+.texto-galeria > span {
+    color: #0874ff;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.texto-galeria h2 {
+    margin-top: 1.5rem;
+    color: #062250;
+    font-size: 4.2rem;
+    font-weight: 700;
+    line-height: 5rem;
+}
+
+.traco-titulo {
+    width: 7.2rem;
+    height: 0.4rem;
+    margin-top: 2.1rem;
+    background-color: #0874ff;
+}
+
+.texto-galeria p {
+    margin-top: 3.4rem;
+    color: #274567;
+    font-size: 1.7rem;
+    line-height: 2.9rem;
+}
+
+.grade-imagens {
+    position: absolute;
+    top: 7.7rem;
+    left: 38.9rem;
+    display: grid;
+    grid-template-columns: 40.1rem 39.6rem;
+    column-gap: 3rem;
+    row-gap: 5.2rem;
+}
+
+.grade-imagens figure {
+    text-align: center;
+}
+
+.grade-imagens img {
+    width: 100%;
+    height: 22.6rem;
+    object-fit: cover;
+    background-color: #eef5ff;
+    border-radius: 2rem;
+}
+
+.grade-imagens figcaption {
+    margin-top: 2.1rem;
+    color: #062250;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.2rem;
+}
+
+.traco-imagem {
+    width: 7.8rem;
+    height: 0.3rem;
+    margin: 1.1rem auto 0;
+    background-color: #0874ff;
+}
+
+.linha-final {
+    position: absolute;
+    top: 74rem;
+    left: 38.6rem;
+    width: 83.8rem;
+    border-top: 0.1rem solid #0874ff;
+}
+
+.linha-final::before,
+.linha-final::after {
+    content: "";
+    position: absolute;
+    top: -0.4rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    background-color: #0874ff;
+    border-radius: 50%;
+}
+
+.linha-final::before {
+    left: 0;
+}
+
+.linha-final::after {
+    right: 0;
+}
