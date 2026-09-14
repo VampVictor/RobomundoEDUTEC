@@ -4,8 +4,20 @@
     box-sizing: border-box;
 }
 
+
+html {
+    font-size: 62.5%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     font-family: "Poppins", Arial, sans-serif;
+    font-size: 1.6rem;
     color: #111111;
     background-color: #f9fcff;
 }
@@ -15,6 +27,13 @@ img {
     max-width: 100%;
 }
 
+h1,
+h2,
+p {
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
 .container {
     width: calc(100% - 8rem);
     max-width: 118rem;
@@ -22,7 +41,9 @@ img {
 }
 
 
+
 .cabecalho {
+    width: 100%;
     height: 13.4rem;
     background-color: #ffffff;
     box-shadow: 0 0.4rem 1rem #d3eafe;
@@ -49,7 +70,7 @@ img {
 
 .menu a {
     color: #1b3f5f;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     text-decoration: none;
     white-space: nowrap;
 }
@@ -59,7 +80,9 @@ img {
 }
 
 
+
 .inicio {
+    width: 100%;
     min-height: 58.3rem;
     background-color: #f9fcff;
 }
@@ -73,19 +96,20 @@ img {
 
 .inicio-texto {
     width: 59rem;
+    min-width: 0;
 }
 
 .inicio-texto h1 {
     max-width: 68rem;
     margin-bottom: 3.5rem;
     color: #1b3f5f;
-    font-size: 7.2rem;
+    font-size: 5.6rem;
     line-height: 1.08;
 }
 
 .inicio-texto p {
     margin-bottom: 2.4rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 1.55;
 }
 
@@ -97,7 +121,9 @@ img {
 }
 
 
+
 .conteudo-principal {
+    width: 100%;
     min-height: 89rem;
     padding: 8.8rem 0 5.6rem;
     background-color: #ffffff;
@@ -118,10 +144,11 @@ img {
 }
 
 .apresentacao p {
+    width: 100%;
     max-width: 107rem;
-    font-size: 2.3rem;
+    font-size: 2rem;
     font-weight: 500;
-    line-height: 2;
+    line-height: 1.8;
 }
 
 .icone-apresentacao,
@@ -148,6 +175,8 @@ img {
     object-fit: contain;
 }
 
+
+
 .cards {
     margin-top: 11rem;
     display: flex;
@@ -158,6 +187,7 @@ img {
 .card {
     position: relative;
     width: 35.3rem;
+    min-width: 0;
     min-height: 38.2rem;
     padding: 7.5rem 2.4rem 2.8rem;
     color: #111111;
@@ -189,18 +219,20 @@ img {
 
 .card h2 {
     margin-bottom: 2.2rem;
-    font-size: 3.8rem;
+    font-size: 3rem;
     line-height: 1.15;
 }
 
 .card p {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 500;
     line-height: 1.4;
 }
 
 
+
 .equipe {
+    width: 100%;
     min-height: 46.9rem;
     padding: 5rem 0 6.5rem;
     background-color: #f9fcff;
@@ -214,6 +246,7 @@ img {
 
 .pessoa {
     width: 33rem;
+    min-width: 0;
     text-align: center;
 }
 
@@ -233,13 +266,14 @@ img {
 }
 
 .pessoa h2 {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     line-height: 1.3;
 }
 
 .pessoa a {
     color: #3c09f4;
-    font-size: 2.7rem;
+    font-size: 2.2rem;
     font-weight: 600;
     text-decoration: none;
+    overflow-wrap: anywhere;
 }

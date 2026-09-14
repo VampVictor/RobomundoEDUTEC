@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -6,12 +5,35 @@
 }
 
 
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background-color: #f9fcff;
+    font-size: 1.6rem;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+
 .pagina-tipos {
     position: relative;
     width: 100%;
+    max-width: 128rem;
     height: 346.8rem;
     margin: 0 auto;
-    overflow: hidden;
+    overflow: visible;
     background-color: #f9fcff;
 }
 
@@ -20,13 +42,16 @@
     top: 6.1rem;
     left: 50%;
     width: 73.7rem;
+    max-width: 100%;
     transform: translateX(-50%);
     color: #1b3f5f;
-    font-size: 9.6rem;
+    font-size: 6.4rem;
     font-weight: 700;
-    line-height: 9rem;
+    line-height: 1.1;
     text-align: center;
+    overflow-wrap: break-word;
 }
+
 
 
 .tipo {
@@ -38,44 +63,74 @@
 
 .faixa {
     position: absolute;
+    z-index: 1;
     top: 2.6rem;
     width: 84.8rem;
     height: 34.6rem;
     box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
 }
 
+
+.faixa::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    background-color: inherit;
+}
+
 .tipo-esquerda .faixa {
     left: 0;
+}
+
+.tipo-esquerda .faixa::before {
+    right: 100%;
 }
 
 .tipo-direita .faixa {
     right: 0;
 }
 
+.tipo-direita .faixa::before {
+    left: 100%;
+}
+
+
+
 .conteudo-tipo {
     position: absolute;
     z-index: 2;
+    top: 50%;
     width: 55.1rem;
+    max-width: 100%;
+    transform: translateY(-50%);
 }
 
 .conteudo-tipo h2 {
+    margin-bottom: 1.2rem;
     color: #1b3f5f;
-    font-size: 4.8rem;
+    font-size: 3.5rem;
     font-weight: 700;
-    line-height: 5rem;
+    line-height: 1.2;
+    overflow-wrap: break-word;
 }
 
 .descricao {
-    font-size: 2.4rem;
-    line-height: 3rem;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    overflow-wrap: break-word;
 }
 
 .exemplos {
-    margin-top: 2rem;
-    font-size: 3.2rem;
+    margin-top: 1.6rem;
+    font-size: 2.2rem;
     font-weight: 600;
-    line-height: 3.5rem;
+    line-height: 1.3;
+    overflow-wrap: break-word;
 }
+
+
 
 .imagem-tipo {
     position: absolute;
@@ -88,13 +143,9 @@
 }
 
 
-.tipo-esquerda .conteudo-tipo {
-    top: 4.7rem;
-    left: 4.5rem;
-}
 
-.tipo-esquerda .conteudo-tipo h2 {
-    margin-bottom: 0.7rem;
+.tipo-esquerda .conteudo-tipo {
+    left: 4.5rem;
 }
 
 .tipo-esquerda .imagem-tipo {
@@ -104,13 +155,9 @@
 }
 
 
-.tipo-direita .conteudo-tipo {
-    top: 4.7rem;
-    right: 4.5rem;
-}
 
-.tipo-direita .conteudo-tipo h2 {
-    margin-bottom: 1.4rem;
+.tipo-direita .conteudo-tipo {
+    right: 4.5rem;
 }
 
 .tipo-direita .imagem-tipo {
@@ -118,6 +165,7 @@
     width: 39.8rem;
     height: 40.2rem;
 }
+
 
 
 .industrial {
@@ -128,17 +176,11 @@
     background-color: #bdb8ff;
 }
 
-.industrial .conteudo-tipo {
-    top: 5.9rem;
-}
-
-.industrial .conteudo-tipo h2 {
-    margin-bottom: 1.8rem;
-}
-
 .industrial .descricao {
     margin-left: 0.4rem;
 }
+
+
 
 .servico {
     top: 66.4rem;
@@ -149,18 +191,14 @@
 }
 
 .servico .conteudo-tipo {
-    top: 6.9rem;
     right: 4.9rem;
-    left: auto;
-}
-
-.servico .conteudo-tipo h2 {
-    margin-bottom: 1.8rem;
 }
 
 .servico .descricao {
     margin-left: 0.4rem;
 }
+
+
 
 .medico {
     top: 111.5rem;
@@ -170,11 +208,7 @@
     background-color: #b8eeff;
 }
 
-.medico .descricao,
-.humanoide .descricao,
-.educacional .descricao {
-    font-size: 2.3rem;
-}
+
 
 .explorador {
     top: 156.1rem;
@@ -184,9 +218,7 @@
     background-color: #fffcd2;
 }
 
-.explorador .conteudo-tipo {
-    top: 4.1rem;
-}
+
 
 .humanoide {
     top: 201.2rem;
@@ -196,6 +228,8 @@
     background-color: #fdb8ff;
 }
 
+
+
 .seguranca {
     top: 245.8rem;
 }
@@ -204,9 +238,7 @@
     background-color: #ffd2d2;
 }
 
-.seguranca .conteudo-tipo h2 {
-    margin-bottom: 2.1rem;
-}
+
 
 .educacional {
     top: 290.9rem;
@@ -214,4 +246,50 @@
 
 .educacional .faixa {
     background-color: #b8caff;
+}
+
+
+
+.medico .descricao,
+.humanoide .descricao,
+.educacional .descricao {
+    font-size: 1.7rem;
+}
+
+
+.faixa {
+    position: absolute;
+    z-index: 1;
+    top: 2.6rem;
+    width: 84.8rem;
+    height: 34.6rem;
+    box-shadow: none;
+}
+
+.faixa::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    background-color: inherit;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+}
+
+
+.tipo-esquerda .faixa {
+    left: 0;
+}
+
+.tipo-esquerda .faixa::before {
+    right: 0;
+}
+
+
+.tipo-direita .faixa {
+    right: 0;
+}
+
+.tipo-direita .faixa::before {
+    left: 0;
 }
