@@ -1,6 +1,7 @@
 # Arena RoboMundo — Quiz EDUTEC
 
-Abra `quiz.html` no navegador, ou acesse **Quiz** no menu de qualquer página.
+Abra `quiz.html` diretamente no navegador. Por solicitação do autor, as páginas anteriores
+permanecem intactas, inclusive seus links. Apenas o menu da nova página aponta para o jogo.
 Não há instalação, compilação ou biblioteca JavaScript. Também funciona abrindo o HTML diretamente.
 A fonte Poppins é a mesma do site; se estiver offline, a fonte alternativa é Arial.
 Robôs, cenário, ataques e sons são gerados localmente.
@@ -70,5 +71,5 @@ A área de colisão do jogador é menor que seu desenho, para tornar os desvios 
 Os testes de lógica exercitam os botões das quatro alternativas, erros com a última vida,
 repetição das cinco questões, progressão, quatro ataques, pausa, colisões e reinício após vitória/derrota.
 Uma simulação completa movimenta o robô pelas áreas seguras, sem desativar dano ou ataques.
-As páginas antigas são comparadas com a versão original: somente o destino Quiz deve mudar.
+As páginas antigas são comparadas com a versão original: nenhum byte deve mudar.
 Esses testes não substituem a inspeção visual e uma partida em navegador real.

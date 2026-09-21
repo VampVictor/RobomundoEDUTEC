@@ -116,11 +116,11 @@ test('partida completa usa tempos reais de simulação, progressão e animação
     }
     assert.equal(g.estado,'vitoria');assert.equal(fases,5);assert.ok(segundos>=167&&segundos<170);assert.equal(g.ataques.length,0);
 });
-test('links e recursos locais existem; páginas antigas mudam somente o link Quiz', () => {
+test('links e recursos locais existem; páginas antigas permanecem integralmente intactas', () => {
     const {execFileSync}=require('node:child_process');
     for(const arquivo of ['index.html','o-que-e-robotica.html','robotica-no-futuro.html','tipos-de-robo.html','quiz.html']){
         const html=fs.readFileSync(path.join(raiz,arquivo),'utf8');
         for(const [,url] of html.matchAll(/(?:href|src)="([^"]+)"/g)) if(!/^(https?:|#)/.test(url))assert.ok(fs.existsSync(path.join(raiz,url)),url);
-        if(arquivo!=='quiz.html') { const original=execFileSync('git',['show',`1bc40b8:${arquivo}`],{cwd:raiz,encoding:'utf8'});assert.equal(html,original.replace('<a href="#">Quiz</a>','<a href="quiz.html">Quiz</a>')); }
+        if(arquivo!=='quiz.html') { const original=execFileSync('git',['show',`1bc40b8:${arquivo}`],{cwd:raiz,encoding:'utf8'});assert.equal(html,original); }
     }
 });
