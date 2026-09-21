@@ -66,6 +66,7 @@ test('quatro padrões: aviso sem dano, colisão ativa e região segura', () => {
         do {g.criarAtaque();}while(g.ataques.at(-1).tipo!==tipo);
         const b=g.ataques.at(-1);g.ataques.splice(0,g.ataques.length-1);
         g.player.x=90;g.player.y=80;
+        if(tipo==='chuva') b.pontos=[{x:500,y:250}];
         if(tipo==='onda'){b.seguro=Math.atan2(80-250,90-500);}
         b.idade=b.aviso;g.atualizar(.01);assert.equal(g.player.hp,3,`${tipo}: desvio`);
     }
