@@ -1,120 +1,721 @@
-.pagina-quiz .menu a[aria-current="page"] { color: #0874ff; font-weight: 600; }
-.jogo-container { max-width: 118rem; width: calc(100% - 8rem); margin: 4rem auto 3rem; }
-.jogo-titulo { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2.5rem; color: #1b3f5f; }
-.sobretitulo { font-size: 1.1rem; letter-spacing: .22rem; font-weight: 600; color: #0874ff; }
-.jogo-titulo h1 { font-size: 3.6rem; letter-spacing: -.13rem; line-height: 1.5; }
-.jogo-titulo h1 span { color: #0874ff; }
-.jogo-titulo > div > p:last-child { font-size: 1.3rem; color: #657b90; }
-.selo { display: flex; align-items: center; gap: 1.2rem; border: 1px solid #d3eafe; border-radius: 3rem; padding: 1rem 1.6rem; font-size: 1rem; letter-spacing: .1rem; }
-.selo i,.ponto { display: inline-block; width: .5rem; height: .5rem; border-radius: 50%; background: #0874ff; }
-.console { border-radius: 1.8rem; overflow: hidden; background: #071a34; color: #f9fcff; box-shadow: 0 1.5rem 5rem #06225024; border: 1px solid #233e60; }
-.painel-superior,.painel-inferior { display: flex; align-items: center; gap: 3rem; padding: 1.7rem 2.6rem; position: relative; z-index: 2; background: #0b203c; }
-.painel-superior { border-bottom: 1px solid #2a4160; }
-.identidade { display: flex; align-items: center; gap: 1.2rem; min-width: 12rem; }
-.identidade strong { font-size: 1.5rem; letter-spacing: .22rem; }
-.identidade small,.player-hud small,.acertos small { display: block; color: #8ca6c2; font-size: .9rem; letter-spacing: .1rem; }
-.luz { width: 1rem; height: 1rem; background: #ff647d; border-radius: 50%; box-shadow: 0 0 1.5rem #ff647d90; }
-.boss-hud { flex: 1; }
-.boss-hud > div:first-child { display: flex; justify-content: space-between; font-size: .9rem; letter-spacing: .12rem; margin-bottom: .7rem; color: #b9cde3; }
-.boss-hud strong { color: #ff8c9e; }
-.barra-hp,.barra-tempo { height: .7rem; background: #23344e; border-radius: 1rem; overflow: hidden; }
-.barra-hp span { display: block; height: 100%; width: 100%; background: linear-gradient(90deg,#b84575,#ff697b); transition: width .6s ease; }
-.ferramentas { display: flex; gap: .7rem; }
-.pagina-quiz button { font-family: inherit; cursor: pointer; }
-.botao-icon { background: #132d4d; color: #d4e6ff; border: 1px solid #35506f; border-radius: .7rem; padding: .8rem 1rem; font-size: 1rem; transition: background .2s; }
-.botao-icon:hover { background: #234465; }
-.pagina-quiz button:disabled { cursor: default; opacity: .45; }
-.pagina-quiz :focus-visible { outline: 3px solid #56d5ff; outline-offset: 4px; }
-.arena { position: relative; aspect-ratio: 2 / 1; background: #071a34; isolation: isolate; }
-#jogo { display: block; width: 100%; height: 100%; touch-action: none; }
-.arena-legenda { position: absolute; top: 1.4rem; left: 2rem; right: 2rem; display: flex; justify-content: space-between; color: #607d9e; font: .8rem monospace; letter-spacing: .12rem; pointer-events: none; }
-.aviso-ataque { position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 1.1rem; color: #ffe0a0; padding: .6rem 1.5rem; border-radius: 2rem; background: #09182ce8; pointer-events: none; }
-.aviso-ataque:empty { display: none; }
-.camada { position: absolute; inset: 0; display: grid; place-items: center; padding: 2rem; background: #04142a80; backdrop-filter: blur(3px); overflow: auto; }
-.camada[hidden],.tela[hidden],[hidden] { display: none !important; }
-.tela { max-width: 70rem; width: 100%; text-align: center; animation: entrar .25s ease-out; }
-.etiqueta { color: #70c8ff; font-size: .95rem; font-weight: 600; letter-spacing: .16rem; }
-.tela h2 { font-size: clamp(2.5rem,3.7vw,4.8rem); line-height: 1.13; letter-spacing: -.15rem; margin: 1.5rem 0; }
-.tela-inicio h2 span { color: #75ceff; }
-.tela p { color: #b9cde3; font-size: 1.3rem; line-height: 1.7; }
-.instrucoes { display: flex; justify-content: center; gap: 0; margin: 2.2rem 0; }
-.instrucoes div { padding: 0 2.4rem; border-right: 1px solid #344f70; }
-.instrucoes div:last-child { border: 0; }
-.instrucoes b { font-size: 1.1rem; color: #e7f4ff; }
-.instrucoes span { display: block; margin-top: .3rem; font-size: 1rem; color: #90a9c6; }
-.botao-primario { display: inline-flex; align-items: center; justify-content: center; gap: 5rem; min-height: 4.4rem; padding: 1.1rem 2.7rem; background: #0874ff; color: white; font-size: 1.2rem; font-weight: 600; border: 1px solid #58a4ff; border-radius: .7rem; box-shadow: 0 .6rem 2rem #0874ff25; transition: background .2s, transform .2s; }
-.botao-primario:hover { background: #258bff; transform: translateY(-2px); }
-.tela-inicio > small { display: block; color: #849bb6; margin-top: 1.2rem; font-size: .9rem; }
-.tela-pergunta { background: #102744f5; border: 1px solid #395a7c; border-radius: 1.3rem; text-align: left; padding: 2.5rem 3rem; box-shadow: 0 2rem 5rem #0005; }
-.pergunta-topo { display: flex; justify-content: space-between; gap: 1rem; font-size: 1rem; color: #97adc8; }
-.tela-pergunta h2 { font-size: 2.2rem; line-height: 1.4; letter-spacing: -.04rem; margin: 1.2rem 0 1.6rem; }
-.alternativas { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.alternativa { display: flex; align-items: center; text-align: left; gap: 1rem; padding: 1.2rem; min-height: 6rem; color: #e3efff; background: #152f50; border: 1px solid #3a5475; border-radius: .7rem; font-size: 1.2rem; line-height: 1.5; }
-.alternativa b { display: grid; place-items: center; width: 2.4rem; height: 2.4rem; flex-shrink: 0; border-radius: .4rem; background: #254361; font-size: 1rem; }
-.alternativa:hover:not(:disabled) { border-color: #70c8ff; background: #204367; }
-.alternativa:disabled { opacity: 1 !important; }
-.alternativa.correta { background: #154f46; border-color: #61e4b5; }
-.alternativa.errada { background: #572b40; border-color: #ff8292; }
-.feedback { min-height: 2rem; font-size: 1.1rem; line-height: 1.6; margin-top: 1.2rem; color: #b9cde3; }
-.feedback strong { display: block; color: #74e3bd; }
-.feedback.erro strong { color: #ff9aab; }
-.pergunta-rodape { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: .8rem; font-size: .9rem; color: #8da7c6; }
-.pergunta-rodape button { min-height: 3.5rem; padding: .7rem 1.5rem; }
-.tela-pausa .botao-primario,.tela-fim .botao-primario { margin-top: 2rem; }
-#fim-simbolo { color: #70d9ff; font-size: 5rem; line-height: 1.2; margin-top: 1rem; }
-.tela-fim a { display: block; color: #8fbeea; font-size: 1.1rem; margin-top: 1.5rem; }
-#fim-estatisticas { margin-top: 1rem; font-size: 1.1rem; }
-.painel-inferior { border-top: 1px solid #2a4160; }
-.player-hud { display: flex; gap: 1rem; align-items: center; min-width: 15rem; }
-.mini-robo { color: #7dd8ff; font-size: 3.5rem; }
-#vidas { color: #69d1ff; font-size: 2rem; letter-spacing: .3rem; }
-.progresso-missao { flex: 1; }
-.progresso-missao > div:first-child { display: flex; justify-content: space-between; margin-bottom: .8rem; font-size: .9rem; letter-spacing: .08rem; color: #8fa9c6; }
-#fase { color: #d7eaff; }
-.barra-tempo { height: .4rem; }
-.barra-tempo span { display: block; height: 100%; background: #58bdff; width: 0; }
-.acertos { text-align: right; }
-.acertos strong { font-size: 1.8rem; color: #88d7ff; }
-.rodape-jogo { display: flex; justify-content: space-between; gap: 2rem; margin: 1.5rem 0; color: #677e97; font-size: 1rem; }
-.rodape-jogo .ponto { margin-right: .5rem; }
-.controles-toque { display: none; }
-.sem-js { padding: 2rem; color: #ac173c; }
-@keyframes entrar { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.pagina-quiz .menu a[aria-current="page"] {
+    color: #0874ff;
+    font-weight: 600;
+}
+.jogo-container {
+    max-width: 118rem;
+    width: calc(100% - 8rem);
+    margin: 4rem auto 3rem;
+}
+.jogo-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    color: #1b3f5f;
+}
+.sobretitulo {
+    font-size: 1.1rem;
+    letter-spacing: 0.22rem;
+    font-weight: 600;
+    color: #0874ff;
+}
+.jogo-titulo h1 {
+    font-size: 3.6rem;
+    letter-spacing: -0.13rem;
+    line-height: 1.5;
+}
+.jogo-titulo h1 span {
+    color: #0874ff;
+}
+.jogo-titulo > div > p:last-child {
+    font-size: 1.3rem;
+    color: #657b90;
+}
+.selo {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    border: 1px solid #d3eafe;
+    border-radius: 3rem;
+    padding: 1rem 1.6rem;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+}
+.selo i,
+.ponto {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #0874ff;
+}
+.console {
+    border-radius: 1.8rem;
+    overflow: hidden;
+    background: #071a34;
+    color: #f9fcff;
+    box-shadow: 0 1.5rem 5rem #06225024;
+    border: 1px solid #233e60;
+}
+.painel-superior,
+.painel-inferior {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 1.7rem 2.6rem;
+    position: relative;
+    z-index: 2;
+    background: #0b203c;
+}
+.painel-superior {
+    border-bottom: 1px solid #2a4160;
+}
+.identidade {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    min-width: 12rem;
+}
+.identidade strong {
+    font-size: 1.5rem;
+    letter-spacing: 0.22rem;
+}
+.identidade small,
+.player-hud small,
+.acertos small {
+    display: block;
+    color: #8ca6c2;
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+}
+.luz {
+    width: 1rem;
+    height: 1rem;
+    background: #ff647d;
+    border-radius: 50%;
+    box-shadow: 0 0 1.5rem #ff647d90;
+}
+.boss-hud {
+    flex: 1;
+}
+.boss-hud > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    letter-spacing: 0.12rem;
+    margin-bottom: 0.7rem;
+    color: #b9cde3;
+}
+.boss-hud strong {
+    color: #ff8c9e;
+}
+.barra-hp,
+.barra-tempo {
+    height: 0.7rem;
+    background: #23344e;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.barra-hp span {
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #b84575, #ff697b);
+    transition: width 0.6s ease;
+}
+.ferramentas {
+    display: flex;
+    gap: 0.7rem;
+}
+.pagina-quiz button {
+    font-family: inherit;
+    cursor: pointer;
+}
+.botao-icon {
+    background: #132d4d;
+    color: #d4e6ff;
+    border: 1px solid #35506f;
+    border-radius: 0.7rem;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+.botao-icon:hover {
+    background: #234465;
+}
+.pagina-quiz button:disabled {
+    cursor: default;
+    opacity: 0.45;
+}
+.pagina-quiz :focus-visible {
+    outline: 3px solid #56d5ff;
+    outline-offset: 4px;
+}
+.arena {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 2 / 1;
+    background: #071a34;
+    isolation: isolate;
+}
+#jogo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+.arena-legenda {
+    position: absolute;
+    top: 1.4rem;
+    left: 2rem;
+    right: 2rem;
+    display: flex;
+    justify-content: space-between;
+    color: #607d9e;
+    font: 0.8rem monospace;
+    letter-spacing: 0.12rem;
+    pointer-events: none;
+}
+.aviso-ataque {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 1.1rem;
+    color: #ffe0a0;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2rem;
+    background: #09182ce8;
+    pointer-events: none;
+}
+.aviso-ataque:empty {
+    display: none;
+}
+.camada {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    background: #04142a80;
+    backdrop-filter: blur(3px);
+    overflow: auto;
+}
+.camada[hidden],
+.tela[hidden],
+[hidden] {
+    display: none !important;
+}
+.tela {
+    max-width: 70rem;
+    width: 100%;
+    text-align: center;
+    animation: entrar 0.25s ease-out;
+}
+.etiqueta {
+    color: #70c8ff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.16rem;
+}
+.tela h2 {
+    font-size: clamp(2.5rem, 3.7vw, 4.8rem);
+    line-height: 1.13;
+    letter-spacing: -0.15rem;
+    margin: 1.5rem 0;
+}
+.tela-inicio h2 span {
+    color: #75ceff;
+}
+.tela p {
+    color: #b9cde3;
+    font-size: 1.3rem;
+    line-height: 1.7;
+}
+.instrucoes {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin: 2.2rem 0;
+}
+.instrucoes div {
+    padding: 0 2.4rem;
+    border-right: 1px solid #344f70;
+}
+.instrucoes div:last-child {
+    border: 0;
+}
+.instrucoes b {
+    font-size: 1.1rem;
+    color: #e7f4ff;
+}
+.instrucoes span {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 1rem;
+    color: #90a9c6;
+}
+.botao-primario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    min-height: 4.4rem;
+    padding: 1.1rem 2.7rem;
+    background: #0874ff;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: 1px solid #58a4ff;
+    border-radius: 0.7rem;
+    box-shadow: 0 0.6rem 2rem #0874ff25;
+    transition:
+        background 0.2s,
+        transform 0.2s;
+}
+.botao-primario:hover {
+    background: #258bff;
+    transform: translateY(-2px);
+}
+.tela-inicio > small {
+    display: block;
+    color: #849bb6;
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+}
+.tela-pergunta {
+    background: #102744f5;
+    border: 1px solid #395a7c;
+    border-radius: 1.3rem;
+    text-align: left;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 2rem 5rem #0005;
+}
+.pergunta-topo {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 1rem;
+    color: #97adc8;
+}
+.tela-pergunta h2 {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    letter-spacing: -0.04rem;
+    margin: 1.2rem 0 1.6rem;
+}
+.alternativas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.alternativa {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 1rem;
+    padding: 1.2rem;
+    min-height: 6rem;
+    color: #e3efff;
+    background: #152f50;
+    border: 1px solid #3a5475;
+    border-radius: 0.7rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+.alternativa b {
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    flex-shrink: 0;
+    border-radius: 0.4rem;
+    background: #254361;
+    font-size: 1rem;
+}
+.alternativa:hover:not(:disabled) {
+    border-color: #70c8ff;
+    background: #204367;
+}
+.alternativa:disabled {
+    opacity: 1 !important;
+}
+.alternativa.correta {
+    background: #154f46;
+    border-color: #61e4b5;
+}
+.alternativa.errada {
+    background: #572b40;
+    border-color: #ff8292;
+}
+.feedback {
+    min-height: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 1.2rem;
+    color: #b9cde3;
+}
+.feedback strong {
+    display: block;
+    color: #74e3bd;
+}
+.feedback.erro strong {
+    color: #ff9aab;
+}
+.pergunta-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: #8da7c6;
+}
+.pergunta-rodape button {
+    min-height: 3.5rem;
+    padding: 0.7rem 1.5rem;
+}
+.tela-pausa .botao-primario,
+.tela-fim .botao-primario {
+    margin-top: 2rem;
+}
+#fim-simbolo {
+    color: #70d9ff;
+    font-size: 5rem;
+    line-height: 1.2;
+    margin-top: 1rem;
+}
+.tela-fim a {
+    display: block;
+    color: #8fbeea;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+}
+#fim-estatisticas {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+.painel-inferior {
+    border-top: 1px solid #2a4160;
+}
+.player-hud {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    min-width: 15rem;
+}
+.mini-robo {
+    color: #7dd8ff;
+    font-size: 3.5rem;
+}
+#vidas {
+    color: #69d1ff;
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+}
+.progresso-missao {
+    flex: 1;
+}
+.progresso-missao > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.08rem;
+    color: #8fa9c6;
+}
+#fase {
+    color: #d7eaff;
+}
+.barra-tempo {
+    height: 0.4rem;
+}
+.barra-tempo span {
+    display: block;
+    height: 100%;
+    background: #58bdff;
+    width: 0;
+}
+.acertos {
+    text-align: right;
+}
+.acertos strong {
+    font-size: 1.8rem;
+    color: #88d7ff;
+}
+.rodape-jogo {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    color: #677e97;
+    font-size: 1rem;
+}
+.rodape-jogo .ponto {
+    margin-right: 0.5rem;
+}
+.controles-toque {
+    display: none;
+}
+.sem-js {
+    padding: 2rem;
+    color: #ac173c;
+}
+@keyframes entrar {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 @media (max-width: 900px) {
-    .pagina-quiz .cabecalho { height: auto; min-height: 10rem; }
-    .pagina-quiz .cabecalho-conteudo { flex-wrap: wrap; justify-content: center; padding-bottom: 1.5rem; gap: .5rem; }
-    .pagina-quiz .menu { flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
-    .pagina-quiz .menu a { font-size: 1.2rem; }
-    .jogo-container { width: calc(100% - 3rem); margin-top: 2.5rem; }
-    .selo { display: none; }
-    .painel-superior,.painel-inferior { padding: 1.2rem; gap: 1.5rem; }
-    .identidade { min-width: auto; }
-    .arena { min-height: 45rem; }
-    #jogo { object-fit: contain; }
-    .rodape-jogo { flex-direction: column; gap: .5rem; }
-    .controles-toque { display: flex; gap: 1rem; justify-content: center; padding: 1rem; }
-    .controles-toque button { width: 5.5rem; height: 4.5rem; background: #173451; color: #beeaff; border: 1px solid #416281; border-radius: .8rem; font-size: 2rem; touch-action: none; }
+    .pagina-quiz .cabecalho {
+        height: auto;
+        min-height: 10rem;
+    }
+    .pagina-quiz .cabecalho-conteudo {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 1.5rem;
+        gap: 0.5rem;
+    }
+    .pagina-quiz .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    .pagina-quiz .menu a {
+        font-size: 1.2rem;
+    }
+    .jogo-container {
+        width: calc(100% - 3rem);
+        margin-top: 2.5rem;
+    }
+    .selo {
+        display: none;
+    }
+    .painel-superior,
+    .painel-inferior {
+        padding: 1.2rem;
+        gap: 1.5rem;
+    }
+    .identidade {
+        min-width: auto;
+    }
+    .arena {
+        min-height: 45rem;
+    }
+    #jogo {
+        object-fit: contain;
+    }
+    .rodape-jogo {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .controles-toque {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        padding: 1rem;
+    }
+    .controles-toque button {
+        width: 5.5rem;
+        height: 4.5rem;
+        background: #173451;
+        color: #beeaff;
+        border: 1px solid #416281;
+        border-radius: 0.8rem;
+        font-size: 2rem;
+        touch-action: none;
+    }
 }
 @media (max-width: 550px) {
-    .jogo-titulo h1 { font-size: 2.8rem; }
-    .identidade { display: none; }
-    .ferramentas { flex-direction: column; }
-    .arena { min-height: 52rem; }
-    .arena-legenda { display: none; }
-    .camada { padding: 1.2rem; }
-    .tela-pergunta { padding: 1.6rem; }
-    .tela-pergunta h2 { font-size: 1.6rem; }
-    .alternativas { grid-template-columns: 1fr; gap: .7rem; }
-    .alternativa { min-height: 4.2rem; padding: .7rem; font-size: 1.1rem; }
-    .instrucoes div { padding: 0 1rem; }
-    .instrucoes b { font-size: .9rem; }
-    .instrucoes span { font-size: .85rem; }
-    .player-hud { min-width: auto; }
-    .player-hud small { font-size: .7rem; }
-    .mini-robo,.acertos small { display: none; }
-    .progresso-missao > div:first-child { flex-direction: column; gap: .4rem; font-size: .8rem; }
-    .pergunta-rodape { align-items: flex-start; }
+    .jogo-titulo h1 {
+        font-size: 2.8rem;
+    }
+    .identidade {
+        display: none;
+    }
+    .ferramentas {
+        flex-direction: column;
+    }
+    .arena {
+        min-height: 52rem;
+    }
+    .arena-legenda {
+        display: none;
+    }
+    .camada {
+        padding: 1.2rem;
+    }
+    .tela-pergunta {
+        padding: 1.6rem;
+    }
+    .tela-pergunta h2 {
+        font-size: 1.6rem;
+    }
+    .alternativas {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+    }
+    .alternativa {
+        min-height: 4.2rem;
+        padding: 0.7rem;
+        font-size: 1.1rem;
+    }
+    .instrucoes div {
+        padding: 0 1rem;
+    }
+    .instrucoes b {
+        font-size: 0.9rem;
+    }
+    .instrucoes span {
+        font-size: 0.85rem;
+    }
+    .player-hud {
+        min-width: auto;
+    }
+    .player-hud small {
+        font-size: 0.7rem;
+    }
+    .mini-robo,
+    .acertos small {
+        display: none;
+    }
+    .progresso-missao > div:first-child {
+        flex-direction: column;
+        gap: 0.4rem;
+        font-size: 0.8rem;
+    }
+    .pergunta-rodape {
+        align-items: flex-start;
+    }
 }
 @media (prefers-reduced-motion: reduce) {
-    .pagina-quiz * { animation: none !important; transition: none !important; }
+    .pagina-quiz * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* RoboMundo 2.0 — acabamento visual; lógica e canvas preservados. */
+.pagina-quiz {
+    background:
+        radial-gradient(ellipse at 85% 12%, #deefff, transparent 55%), #f6faff;
+}
+.pagina-quiz .menu a[aria-current="page"] {
+    color: #fff;
+}
+.jogo-titulo {
+    gap: 2rem;
+}
+.selo {
+    background: #fff;
+    color: #315679;
+    box-shadow: 0 0.4rem 1.2rem #123f7008;
+}
+.console {
+    border-color: #375b80;
+    box-shadow:
+        0 2rem 5rem #06225024,
+        0 0 0 0.5rem #fff;
+}
+.painel-superior,
+.painel-inferior {
+    background: linear-gradient(100deg, #102c4b, #0b203c);
+}
+/* As cores claras precisam prevalecer sobre os títulos globais. */
+.tela h2 {
+    color: #f9fcff;
+}
+.botao-primario {
+    background: linear-gradient(120deg, #0865d9, #0874ff);
+    border-radius: 1rem;
+    transition:
+        transform var(--movimento),
+        box-shadow var(--movimento),
+        border-color var(--movimento);
+}
+.botao-primario:active:not(:disabled) {
+    transform: translateY(1px);
+}
+.botao-icon {
+    min-height: 4.4rem;
+}
+.alternativa {
+    transition:
+        border-color var(--movimento),
+        background-color var(--movimento);
+}
+.botao-icon:disabled:hover {
+    background: #132d4d;
+}
+.tela-fim a {
+    padding: 0.8rem;
+    text-underline-offset: 0.4rem;
+}
+.controles-toque button:active {
+    background: #286298;
+}
+.camada {
+    align-items: safe center;
+}
+@media (hover: hover) and (pointer: fine) {
+    .botao-primario:hover:not(:disabled) {
+        background: linear-gradient(120deg, #0874ff, #258bff);
+        box-shadow: 0 0.8rem 2.4rem #0874ff40;
+    }
+}
+@media (hover: none) {
+    .botao-primario:hover {
+        transform: none;
+    }
+    .controles-toque {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        padding: 1rem;
+    }
+    .controles-toque button {
+        width: 5.5rem;
+        height: 4.5rem;
+        background: #173451;
+        color: #beeaff;
+        border: 1px solid #416281;
+        border-radius: 0.8rem;
+        font-size: 2rem;
+        touch-action: none;
+    }
+}
+@media (max-width: 900px) {
+    .pagina-quiz .cabecalho-conteudo {
+        width: calc(100% - 4rem);
+    }
+}
+@media (max-width: 550px) {
+    .jogo-titulo h1 {
+        line-height: 1.3;
+        margin: 0.8rem 0;
+    }
+    .tela h2 {
+        letter-spacing: -0.07rem;
+    }
+    .pergunta-topo {
+        flex-wrap: wrap;
+    }
+    .pergunta-rodape {
+        flex-wrap: wrap;
+    }
+    .pergunta-rodape button {
+        min-height: 4.4rem;
+    }
+    .alternativa {
+        min-height: 4.4rem;
+    }
 }

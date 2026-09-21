@@ -1,279 +1,541 @@
+/* RoboMundo 2.0 — base compartilhada por todas as páginas. */
+:root {
+    --azul: #0865d9;
+    --azul-escuro: #102f50;
+    --texto: #334b63;
+    --fundo: #f6faff;
+    --borda: #d9e7f4;
+    --sombra: 0 1.6rem 4.5rem #123f7010;
+    --movimento: 240ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
-
-
 html {
     font-size: 62.5%;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
+    scroll-padding-top: 12rem;
 }
-
 body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
     font-family: "Poppins", Arial, sans-serif;
     font-size: 1.6rem;
-    color: #111111;
-    background-color: #f9fcff;
+    color: var(--texto);
+    background: var(--fundo);
+    line-height: 1.6;
 }
-
 img {
     display: block;
     max-width: 100%;
 }
-
 h1,
 h2,
-p {
-    max-width: 100%;
+h3,
+p,
+figcaption {
     overflow-wrap: break-word;
 }
-
+h1,
+h2,
+h3 {
+    color: var(--azul-escuro);
+}
+h1,
+h2 {
+    text-wrap: balance;
+}
+a {
+    -webkit-tap-highlight-color: #0874ff24;
+}
+a:focus-visible,
+button:focus-visible {
+    outline: 0.3rem solid var(--azul);
+    outline-offset: 0.6rem;
+}
+::selection {
+    background: #bbddff;
+    color: #102f50;
+}
 .container {
     width: calc(100% - 8rem);
     max-width: 118rem;
     margin: 0 auto;
 }
 
-
-
+/* Navegação: indicação da página atual sem precisar alterar o HTML. */
 .cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 20;
     width: 100%;
-    height: 13.4rem;
-    background-color: #ffffff;
-    box-shadow: 0 0.4rem 1rem #d3eafe;
+    min-height: 10.4rem;
+    background: #fffffffa;
+    border-bottom: 0.1rem solid var(--borda);
+    box-shadow: 0 0.5rem 2.5rem #123f7008;
 }
-
 .cabecalho-conteudo {
-    height: 100%;
+    min-height: 10.4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 2.4rem;
 }
-
+.cabecalho-conteudo > a {
+    flex-shrink: 0;
+    border-radius: 1rem;
+}
 .logo {
-    width: 30rem;
-    height: 10rem;
+    width: 25rem;
+    height: 8.4rem;
     object-fit: contain;
+    transition: transform var(--movimento);
 }
-
 .menu {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 2.2rem;
 }
-
 .menu a {
-    color: #1b3f5f;
-    font-size: 1.6rem;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 4.4rem;
+    color: var(--azul-escuro);
+    font-size: 1.4rem;
+    font-weight: 500;
     text-decoration: none;
     white-space: nowrap;
+    transition:
+        color var(--movimento),
+        background-color var(--movimento);
+}
+.menu a::after {
+    content: "";
+    position: absolute;
+    bottom: 0.4rem;
+    left: 0;
+    right: 0;
+    height: 0.3rem;
+    border-radius: 1rem;
+    background: var(--azul);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--movimento);
+}
+.menu a:last-child {
+    min-width: 7rem;
+    padding: 0.6rem 1.8rem;
+    justify-content: center;
+    background: var(--azul);
+    color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1.4rem #0865d922;
+}
+.menu a:last-child::after {
+    left: 1.8rem;
+    right: 1.8rem;
+    background: white;
+}
+body:has(.inicio) .menu a[href="index.html"],
+body:has(.pagina-robotica) .menu a[href="o-que-e-robotica.html"],
+body:has(.pagina-futuro) .menu a[href="robotica-no-futuro.html"],
+body:has(.pagina-tipos) .menu a[href="tipos-de-robo.html"] {
+    color: var(--azul);
+}
+body:has(.inicio) .menu a[href="index.html"]::after,
+body:has(.pagina-robotica) .menu a[href="o-que-e-robotica.html"]::after,
+body:has(.pagina-futuro) .menu a[href="robotica-no-futuro.html"]::after,
+body:has(.pagina-tipos) .menu a[href="tipos-de-robo.html"]::after,
+.menu a[aria-current="page"]::after,
+.menu a:focus-visible::after {
+    transform: scaleX(1);
 }
 
-.menu a:hover {
-    color: #087bff;
-}
-
-
-
+/* Abertura com fundo técnico discreto e robô flutuante. */
 .inicio {
-    width: 100%;
-    min-height: 58.3rem;
-    background-color: #f9fcff;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 82% 40%, #cbeaff 0, transparent 52%),
+        linear-gradient(135deg, #fff, #f1f8ff);
 }
-
+.inicio::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(#497fa42b 0.1rem, transparent 0.1rem);
+    background-size: 2.6rem 2.6rem;
+    mask-image: linear-gradient(90deg, transparent 36%, #000);
+}
 .inicio-conteudo {
-    min-height: 58.3rem;
-    display: flex;
+    min-height: 60rem;
+    display: grid;
+    grid-template-columns: 1.12fr 1fr;
     align-items: center;
-    justify-content: space-between;
+    gap: 3rem;
 }
-
 .inicio-texto {
-    width: 59rem;
     min-width: 0;
+    padding: 5rem 0;
 }
-
 .inicio-texto h1 {
-    max-width: 68rem;
-    margin-bottom: 3.5rem;
-    color: #1b3f5f;
-    font-size: 5.6rem;
+    max-width: 62rem;
+    margin-bottom: 2.6rem;
+    font-size: clamp(3.8rem, 4.5vw, 6.4rem);
+    letter-spacing: -0.23rem;
     line-height: 1.08;
 }
-
-.inicio-texto p {
-    margin-bottom: 2.4rem;
-    font-size: 1.8rem;
-    line-height: 1.55;
-}
-
-.robo-inicio {
-    width: 46.5rem;
-    height: 58.3rem;
-    object-fit: contain;
-    object-position: center bottom;
-}
-
-
-
-.conteudo-principal {
-    width: 100%;
-    min-height: 89rem;
-    padding: 8.8rem 0 5.6rem;
-    background-color: #ffffff;
-    border-top: 0.1rem solid #eeeeee;
-}
-
-.apresentacao {
-    position: relative;
-    min-height: 25.4rem;
-    padding: 6.5rem 6rem 3.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #eef5ff;
-    border: 0.2rem solid #e6e6e6;
+.inicio-texto h1::after {
+    content: "";
+    display: block;
+    width: 7.5rem;
+    height: 0.5rem;
+    margin-top: 2.6rem;
     border-radius: 1rem;
-    text-align: center;
+    background: linear-gradient(90deg, var(--azul), #5fd2f6);
 }
-
-.apresentacao p {
-    width: 100%;
-    max-width: 107rem;
-    font-size: 2rem;
-    font-weight: 500;
+.inicio-texto p {
+    max-width: 55rem;
+    margin-bottom: 1.8rem;
+    font-size: 1.7rem;
     line-height: 1.8;
 }
+.inicio-texto p:first-of-type {
+    color: #24537c;
+    font-size: 1.9rem;
+    font-weight: 500;
+}
+.robo-inicio {
+    justify-self: center;
+    width: 46.5rem;
+    height: 55rem;
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 2rem 2rem #143d601c);
+}
 
+.conteudo-principal {
+    padding: 10rem 0 8rem;
+    background: #fff;
+    border-top: 0.1rem solid var(--borda);
+}
+.apresentacao {
+    position: relative;
+    padding: 7.3rem 5rem 4rem;
+    background: linear-gradient(125deg, #edf6ff, #f6fbff);
+    border: 0.1rem solid var(--borda);
+    border-radius: 2.4rem;
+    text-align: center;
+}
+.apresentacao p {
+    max-width: 98rem;
+    margin: auto;
+    font-size: 1.9rem;
+    line-height: 1.85;
+}
 .icone-apresentacao,
 .icone-card {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #9bd5ff;
-    border-radius: 50%;
-}
-
-.icone-apresentacao {
-    top: -5.8rem;
     left: 50%;
-    width: 11.5rem;
-    height: 11.5rem;
+    display: grid;
+    place-items: center;
     transform: translateX(-50%);
+    background: linear-gradient(135deg, #d9f1ff, #94d1fc);
+    border: 0.6rem solid #fff;
+    border-radius: 2.8rem;
+    box-shadow: 0 1rem 2.4rem #125c9220;
 }
-
+.icone-apresentacao {
+    top: -5.5rem;
+    width: 11rem;
+    height: 11rem;
+}
 .icone-apresentacao img {
-    width: 10.4rem;
-    height: 10.4rem;
+    width: 9rem;
+    height: 9rem;
     object-fit: contain;
 }
-
-
-
 .cards {
-    margin-top: 11rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 5.4rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem;
+    margin-top: 10rem;
 }
-
 .card {
     position: relative;
-    width: 35.3rem;
     min-width: 0;
-    min-height: 38.2rem;
-    padding: 7.5rem 2.4rem 2.8rem;
-    color: #111111;
-    background-color: #ffffff;
-    border: 0.1rem solid #111111;
-    border-radius: 1.5rem;
+    padding: 8.2rem 2.6rem 3.5rem;
+    color: var(--texto);
+    background: linear-gradient(155deg, #fff 40%, #f3f9ff);
+    border: 0.1rem solid var(--borda);
+    border-radius: 2.4rem;
+    box-shadow: var(--sombra);
     text-align: center;
     text-decoration: none;
+    transition:
+        transform var(--movimento),
+        border-color var(--movimento),
+        box-shadow var(--movimento);
 }
-
-.card:hover {
-    border-color: #087bff;
-    box-shadow: 0 0.8rem 2rem rgba(8, 123, 255, 0.12);
-}
-
 .icone-card {
-    top: -6.4rem;
-    left: 50%;
-    width: 12.7rem;
-    height: 12.7rem;
-    transform: translateX(-50%);
+    top: -5rem;
+    width: 11rem;
+    height: 11rem;
 }
-
 .icone-card img {
-    width: 9.4rem;
-    height: 9.4rem;
+    width: 8rem;
+    height: 8rem;
     object-fit: contain;
+    transition: transform var(--movimento);
 }
-
 .card h2 {
-    margin-bottom: 2.2rem;
-    font-size: 3rem;
-    line-height: 1.15;
+    margin-bottom: 1.8rem;
+    font-size: 2.7rem;
+    line-height: 1.2;
 }
-
 .card p {
-    font-size: 1.8rem;
-    font-weight: 500;
-    line-height: 1.4;
+    font-size: 1.6rem;
+    line-height: 1.75;
 }
-
-
-
+.card:focus-visible {
+    transform: translateY(-0.6rem);
+    border-color: var(--azul);
+}
 .equipe {
-    width: 100%;
-    min-height: 46.9rem;
-    padding: 5rem 0 6.5rem;
-    background-color: #f9fcff;
+    padding: 6.5rem 0;
+    background: linear-gradient(180deg, #edf5fe, #f8fbff);
+    border-top: 0.1rem solid var(--borda);
 }
-
 .equipe-lista {
     display: flex;
     justify-content: center;
-    gap: 15.5rem;
+    gap: clamp(3rem, 10vw, 15rem);
 }
-
 .pessoa {
     width: 33rem;
     min-width: 0;
     text-align: center;
 }
-
 .foto {
-    width: 24.8rem;
-    height: 24.8rem;
-    margin: 0 auto 2.2rem;
+    width: 21rem;
+    height: 21rem;
+    margin: 0 auto 2.4rem;
     overflow: hidden;
-    background-color: #d9d9d9;
+    border: 0.7rem solid #fff;
     border-radius: 50%;
+    box-shadow: 0 1rem 3rem #123f7018;
 }
-
 .foto img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 400ms ease;
 }
-
 .pessoa h2 {
-    font-size: 2.4rem;
-    line-height: 1.3;
+    font-size: 2.1rem;
+    line-height: 1.4;
+}
+.pessoa a {
+    display: inline-block;
+    padding: 0.8rem 0;
+    color: var(--azul);
+    font-size: 1.7rem;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.5rem;
+    overflow-wrap: anywhere;
+    transition: text-decoration-color var(--movimento);
 }
 
-.pessoa a {
-    color: #3c09f4;
-    font-size: 2.2rem;
-    font-weight: 600;
-    text-decoration: none;
-    overflow-wrap: anywhere;
+/* Só dispositivos com mouse recebem efeitos de hover. */
+@media (hover: hover) and (pointer: fine) {
+    .logo:hover {
+        transform: translateY(-0.2rem);
+    }
+    .menu a:hover {
+        color: var(--azul);
+    }
+    .menu a:hover::after {
+        transform: scaleX(1);
+    }
+    .menu a:last-child:hover {
+        color: #fff;
+        background: #074fac;
+    }
+    .card:hover {
+        transform: translateY(-0.8rem);
+        border-color: #78b6f0;
+        box-shadow: 0 2.2rem 4rem #123f701c;
+    }
+    .card:hover .icone-card img {
+        transform: rotate(-6deg) scale(1.06);
+    }
+    .pessoa:hover .foto img {
+        transform: scale(1.045);
+    }
+    .pessoa a:hover {
+        text-decoration-color: currentColor;
+    }
+}
+
+/* Movimento concentrado em transform/opacity; conteúdo permanece visível sem suporte. */
+@keyframes flutuar {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-1deg);
+    }
+    50% {
+        transform: translateY(-1.4rem) rotate(1deg);
+    }
+}
+@keyframes surgir {
+    from {
+        opacity: 0.15;
+        transform: translateY(1.8rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+    .robo-inicio {
+        animation: flutuar 6s ease-in-out 2;
+    }
+    .inicio-texto,
+    .texto-banner,
+    .pagina-tipos > h1,
+    .primeira-secao > h1,
+    .jogo-titulo {
+        animation: surgir 650ms ease-out both;
+    }
+    @supports (animation-timeline: view()) {
+        .apresentacao,
+        .card,
+        .etapa,
+        .grade-imagens figure,
+        .imagem-secao,
+        .imagem-tipo {
+            animation: surgir linear backwards;
+            animation-timeline: view();
+            animation-range: entry 0% entry 85%;
+        }
+    }
+}
+@media (max-width: 1050px) {
+    .cabecalho-conteudo {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0;
+        padding-bottom: 1.2rem;
+    }
+    .logo {
+        width: 22rem;
+        height: 7rem;
+    }
+    .menu {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.3rem 2rem;
+    }
+    html {
+        scroll-padding-top: 16rem;
+    }
+    .cards {
+        gap: 2rem;
+    }
+    .card {
+        padding-inline: 1.8rem;
+    }
+    .card h2 {
+        font-size: 2.3rem;
+    }
+}
+@media (max-width: 700px) {
+    .container {
+        width: calc(100% - 4rem);
+    }
+    .cabecalho {
+        position: relative;
+    }
+    .cabecalho-conteudo {
+        padding-bottom: 1.4rem;
+    }
+    .menu {
+        gap: 0.2rem 1.6rem;
+    }
+    .menu a {
+        font-size: 1.2rem;
+    }
+    html {
+        scroll-padding-top: 2rem;
+    }
+    .inicio-conteudo {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .inicio-texto {
+        padding: 4.5rem 0 1rem;
+    }
+    .inicio-texto h1 {
+        max-width: 50rem;
+        font-size: clamp(3.8rem, 8vw, 5.6rem);
+        letter-spacing: -0.15rem;
+    }
+    .robo-inicio {
+        width: 32rem;
+        height: 34rem;
+    }
+    .conteudo-principal {
+        padding: 8rem 0 5rem;
+    }
+    .apresentacao {
+        padding: 7rem 2.2rem 3rem;
+    }
+    .apresentacao p {
+        font-size: 1.6rem;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 8rem;
+        margin-top: 9rem;
+    }
+    .card {
+        padding: 7.5rem 2.5rem 3rem;
+    }
+    .card h2 {
+        font-size: 2.7rem;
+    }
+    .equipe-lista {
+        flex-wrap: wrap;
+        gap: 4.5rem;
+    }
+    .foto {
+        width: 18rem;
+        height: 18rem;
+    }
+}
+/* Preferência do sistema respeitada em todas as páginas, inclusive no quiz. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
 }

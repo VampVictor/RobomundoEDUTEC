@@ -1,295 +1,138 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-html {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    font-size: 62.5%;
-}
-
-body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    background-color: #f9fcff;
-    font-size: 1.6rem;
-}
-
-img {
-    display: block;
-    max-width: 100%;
-}
-
-
-
+/* Fluxo natural: cada faixa acompanha a altura real do seu conteúdo. */
 .pagina-tipos {
-    position: relative;
     width: 100%;
-    max-width: 128rem;
-    height: 346.8rem;
-    margin: 0 auto;
-    overflow: visible;
-    background-color: #f9fcff;
+    padding: 6rem 0;
 }
-
 .pagina-tipos > h1 {
-    position: absolute;
-    top: 6.1rem;
-    left: 50%;
-    width: 73.7rem;
-    max-width: 100%;
-    transform: translateX(-50%);
-    color: #1b3f5f;
-    font-size: 6.4rem;
-    font-weight: 700;
-    line-height: 1.1;
+    margin: 0 2rem 5.5rem;
     text-align: center;
-    overflow-wrap: break-word;
+    font-size: clamp(3.8rem, 5vw, 6.4rem);
+    line-height: 1.12;
+    letter-spacing: -0.18rem;
 }
-
-
-
 .tipo {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 40.2rem;
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 5rem;
+    min-height: 39rem;
+    padding: 4rem max(4rem, calc((100% - 109rem) / 2));
+    margin-bottom: 3rem;
 }
-
+.tipo:last-child {
+    margin-bottom: 0;
+}
 .faixa {
     position: absolute;
-    z-index: 1;
-    top: 2.6rem;
-    width: 84.8rem;
-    height: 34.6rem;
-    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+    z-index: -1;
+    inset: 0;
+    background: var(--cor-tipo);
+    box-shadow: 0 0.5rem 1.8rem #123f700c;
 }
-
-
-.faixa::before {
+.faixa::after {
     content: "";
     position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100vw;
-    background-color: inherit;
+    inset: 0;
+    background: linear-gradient(100deg, #ffffff55, transparent);
+    pointer-events: none;
 }
-
-.tipo-esquerda .faixa {
-    left: 0;
-}
-
-.tipo-esquerda .faixa::before {
-    right: 100%;
-}
-
-.tipo-direita .faixa {
-    right: 0;
-}
-
-.tipo-direita .faixa::before {
-    left: 100%;
-}
-
-
-
-.conteudo-tipo {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    width: 55.1rem;
-    max-width: 100%;
-    transform: translateY(-50%);
-}
-
-.conteudo-tipo h2 {
-    margin-bottom: 1.2rem;
-    color: #1b3f5f;
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    overflow-wrap: break-word;
-}
-
-.descricao {
-    font-size: 1.8rem;
-    line-height: 1.5;
-    overflow-wrap: break-word;
-}
-
-.exemplos {
-    margin-top: 1.6rem;
-    font-size: 2.2rem;
-    font-weight: 600;
-    line-height: 1.3;
-    overflow-wrap: break-word;
-}
-
-
-
-.imagem-tipo {
-    position: absolute;
-    z-index: 3;
-    top: 0;
-    object-fit: cover;
-    background-color: #ffffff;
-    border: 0.1rem solid #000000;
-    border-radius: 50%;
-}
-
-
-
-.tipo-esquerda .conteudo-tipo {
-    left: 4.5rem;
-}
-
-.tipo-esquerda .imagem-tipo {
-    left: 58.4rem;
-    width: 39.7rem;
-    height: 39.7rem;
-}
-
-
-
-.tipo-direita .conteudo-tipo {
-    right: 4.5rem;
-}
-
-.tipo-direita .imagem-tipo {
-    right: 61.6rem;
-    width: 39.8rem;
-    height: 40.2rem;
-}
-
-
-
 .industrial {
-    top: 21.8rem;
+    --cor-tipo: #e5e2ff;
 }
-
-.industrial .faixa {
-    background-color: #bdb8ff;
-}
-
-.industrial .descricao {
-    margin-left: 0.4rem;
-}
-
-
-
 .servico {
-    top: 66.4rem;
+    --cor-tipo: #e0f6e7;
 }
-
-.servico .faixa {
-    background-color: #d5ffd2;
-}
-
-.servico .conteudo-tipo {
-    right: 4.9rem;
-}
-
-.servico .descricao {
-    margin-left: 0.4rem;
-}
-
-
-
 .medico {
-    top: 111.5rem;
+    --cor-tipo: #daf1fc;
 }
-
-.medico .faixa {
-    background-color: #b8eeff;
-}
-
-
-
 .explorador {
-    top: 156.1rem;
+    --cor-tipo: #faf3d5;
 }
-
-.explorador .faixa {
-    background-color: #fffcd2;
-}
-
-
-
 .humanoide {
-    top: 201.2rem;
+    --cor-tipo: #f5e2f9;
 }
-
-.humanoide .faixa {
-    background-color: #fdb8ff;
-}
-
-
-
 .seguranca {
-    top: 245.8rem;
+    --cor-tipo: #fbe4e5;
 }
-
-.seguranca .faixa {
-    background-color: #ffd2d2;
-}
-
-
-
 .educacional {
-    top: 290.9rem;
+    --cor-tipo: #e0e9fd;
 }
-
-.educacional .faixa {
-    background-color: #b8caff;
+.conteudo-tipo {
+    min-width: 0;
 }
-
-
-
-.medico .descricao,
-.humanoide .descricao,
-.educacional .descricao {
+.conteudo-tipo h2 {
+    margin-bottom: 1.6rem;
+    font-size: clamp(2.8rem, 3vw, 3.5rem);
+    line-height: 1.2;
+}
+.descricao {
+    max-width: 55rem;
     font-size: 1.7rem;
+    line-height: 1.8;
 }
-
-
-.faixa {
-    position: absolute;
-    z-index: 1;
-    top: 2.6rem;
-    width: 84.8rem;
-    height: 34.6rem;
-    box-shadow: none;
+.exemplos {
+    margin-top: 2.2rem;
+    display: grid;
+    gap: 0.8rem;
+    font-size: 1.6rem;
+    font-weight: 500;
 }
-
-.faixa::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 100vw;
-    background-color: inherit;
-    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+.exemplos p {
+    padding: 0.7rem 1.3rem;
+    border-left: 0.3rem solid #507baa;
+    border-radius: 0 0.8rem 0.8rem 0;
+    background: #ffffff70;
 }
-
-
-.tipo-esquerda .faixa {
-    left: 0;
+.imagem-tipo {
+    width: 31rem;
+    height: 31rem;
+    justify-self: center;
+    object-fit: cover;
+    border: 0.7rem solid #fff;
+    border-radius: 28% 28% 28% 8%;
+    box-shadow: 0 1.6rem 3rem #123f701c;
+    transition:
+        border-radius 400ms ease,
+        box-shadow 400ms ease;
 }
-
-.tipo-esquerda .faixa::before {
-    right: 0;
+.tipo-direita {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
 }
-
-
-.tipo-direita .faixa {
-    right: 0;
+.tipo-direita .imagem-tipo {
+    border-radius: 28% 28% 8% 28%;
 }
-
-.tipo-direita .faixa::before {
-    left: 0;
+@media (hover: hover) and (pointer: fine) {
+    .tipo:hover .imagem-tipo {
+        border-radius: 20%;
+        box-shadow: 0 2rem 3.6rem #123f7029;
+    }
+}
+@media (max-width: 800px) {
+    .tipo,
+    .tipo-direita {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3.5rem 2rem;
+    }
+    .conteudo-tipo {
+        grid-row: 1;
+        width: 100%;
+        max-width: 60rem;
+        margin: auto;
+    }
+    .imagem-tipo {
+        grid-row: 2;
+        width: min(31rem, 100%);
+        height: auto;
+        aspect-ratio: 1;
+    }
+    .pagina-tipos {
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+    }
+    .pagina-tipos > h1 {
+        margin-bottom: 4rem;
+    }
 }

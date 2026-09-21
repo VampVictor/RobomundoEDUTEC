@@ -1,321 +1,267 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-html {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    font-size: 62.5%;
-}
-
-body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    font-size: 1.6rem;
-}
-
-img {
-    display: block;
-    max-width: 100%;
-}
-
-.pagina-robotica h1,
-.pagina-robotica h2,
-.pagina-robotica h3,
-.pagina-robotica p,
-.pagina-robotica figcaption {
-    max-width: 100%;
-    overflow-wrap: break-word;
-}
-
+/* Conceitos: grades fluidas evitam os cortes das antigas alturas fixas. */
 .pagina-robotica {
     width: 100%;
-    max-width: 128rem;
-    margin: 0 auto;
-    overflow: hidden;
-    background-color: #f9fcff;
 }
-
-
-
 .robotica-banner {
     position: relative;
-    width: 100%;
-    height: 53.3rem;
+    isolation: isolate;
+    min-height: 50rem;
+    display: flex;
+    align-items: center;
+    background: #062250;
     overflow: hidden;
-    background-color: #062250;
 }
-
 .imagem-banner {
     position: absolute;
+    z-index: -2;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
-.texto-banner {
-    position: absolute;
-    top: 8.7rem;
-    left: 5.3rem;
-    width: 45.2rem;
-    max-width: calc(100% - 10.6rem);
-    color: #ffffff;
-}
-
-.texto-banner h1 {
-    width: 44.8rem;
-    font-size: 6.4rem;
-    font-weight: 600;
-    line-height: 1.15;
-}
-
-.texto-banner p {
-    width: 45.2rem;
-    margin-top: 1.3rem;
-    color: #fffdfd;
-    font-size: 1.8rem;
-    line-height: 1.55;
-}
-
-
-
-.processo {
-    width: 100%;
-    height: 74.8rem;
-    padding: 6.5rem 5.3rem 0;
-    background-color: #f9fcff;
-}
-
-.processo > h2 {
-    width: 69.7rem;
-    margin-bottom: 1.6rem;
-    color: #1b3f5f;
-    font-size: 3.4rem;
-    font-weight: 700;
-    line-height: 1.25;
-}
-
-.processo-introducao {
-    margin-bottom: 4.1rem;
-    color: #656565;
-    font-size: 1.7rem;
-    line-height: 1.5;
-}
-
-.etapas {
-    margin-left: 1.7rem;
-    display: grid;
-    grid-template-columns: repeat(4, 24rem);
-    gap: 6rem;
-}
-
-.etapa {
-    width: 24rem;
-    height: 24.2rem;
-    padding: 3.3rem 2.1rem 1.5rem;
-    background-color: #eef5ff;
-    border: 0.1rem solid #d3eafe;
-    border-top: 1.5rem solid #0874ff;
-    border-radius: 1rem;
-}
-
-.numero-etapa {
-    display: block;
-    margin-bottom: 0.4rem;
-    color: #0874ff;
-    font-size: 3.2rem;
-    font-weight: 600;
-    line-height: 1.1;
-}
-
-.etapa h3 {
-    margin-bottom: 1.2rem;
-    color: #1b3f5f;
-    font-size: 2.1rem;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.etapa p {
-    color: #656565;
-    font-size: 1.5rem;
-    line-height: 1.4;
-}
-
-
-.aviso {
-    position: relative;
-    width: 74.4rem;
-    height: 9.4rem;
-    margin: 7.8rem auto 0;
-    padding: 0 2.6rem 0 8.4rem;
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    border: 0.2rem dashed #0874ff;
-    border-radius: 1rem;
-}
-
-.icone-informacao {
-    position: absolute;
-    top: 2.7rem;
-    left: 2.4rem;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    background-color: #0874ff;
-    border-radius: 50%;
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-
-.aviso p {
-    font-size: 1.5rem;
-    line-height: 1.4;
-}
-
-
-
-.galeria-robos {
-    position: relative;
-    width: 100%;
-    height: 83.2rem;
-    overflow: hidden;
-    background-color: #ffffff;
-}
-
-.texto-galeria {
-    position: absolute;
-    top: 7.7rem;
-    left: 6.2rem;
-    width: 28.6rem;
-}
-
-.texto-galeria > span {
-    color: #0874ff;
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
-.texto-galeria h2 {
-    margin-top: 1.5rem;
-    color: #062250;
-    font-size: 3.4rem;
-    font-weight: 700;
-    line-height: 1.25;
-}
-
-.traco-titulo {
-    width: 7.2rem;
-    height: 0.4rem;
-    margin-top: 2.1rem;
-    background-color: #0874ff;
-}
-
-.texto-galeria p {
-    margin-top: 3.4rem;
-    color: #274567;
-    font-size: 1.6rem;
-    line-height: 1.6;
-}
-
-.grade-imagens {
-    position: absolute;
-    top: 7.7rem;
-    left: 38.9rem;
-    display: grid;
-    grid-template-columns: 40.1rem 39.6rem;
-    column-gap: 3rem;
-    row-gap: 5.2rem;
-}
-
-.grade-imagens figure {
-    text-align: center;
-}
-
-.grade-imagens img {
-    width: 100%;
-    height: 22.6rem;
-    object-fit: cover;
-    background-color: #eef5ff;
-    border-radius: 2rem;
-}
-
-.grade-imagens figcaption {
-    margin-top: 2.1rem;
-    color: #062250;
-    font-size: 1.6rem;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.traco-imagem {
-    width: 7.8rem;
-    height: 0.3rem;
-    margin: 1.1rem auto 0;
-    background-color: #0874ff;
-}
-
-
-
-.linha-final {
-    position: absolute;
-    top: 74rem;
-    left: 38.6rem;
-    width: 83.8rem;
-    border-top: 0.1rem solid #0874ff;
-}
-
-.linha-final::before,
-.linha-final::after {
+.robotica-banner::after {
     content: "";
     position: absolute;
-    top: -0.4rem;
-    width: 0.7rem;
-    height: 0.7rem;
-    background-color: #0874ff;
-    border-radius: 50%;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        #041a3df2 0%,
+        #041a3dd9 32%,
+        #041a3d16 85%
+    );
 }
-
-.linha-final::before {
-    left: 0;
+.texto-banner {
+    width: min(118rem, calc(100% - 8rem));
+    margin: auto;
+    padding: 6rem 0;
+    color: white;
 }
-
-.linha-final::after {
-    right: 0;
+.texto-banner h1 {
+    max-width: 54rem;
+    color: white;
+    font-size: clamp(4rem, 5vw, 6.4rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.15rem;
 }
-
-
-
-
-
-.pagina-robotica {
-    overflow: visible;
+.texto-banner p {
+    max-width: 47rem;
+    margin-top: 2.4rem;
+    color: #e3f0ff;
+    font-size: 1.8rem;
+    line-height: 1.8;
 }
-
-
-.robotica-banner {
-    box-shadow: 0 0 0 100vmax #062250;
-    clip-path: inset(0 -100vmax);
-}
-
-
 .processo {
-    box-shadow: 0 0 0 100vmax #f9fcff;
-    clip-path: inset(0 -100vmax);
+    max-width: 126rem;
+    margin: auto;
+    padding: 7rem 4rem;
 }
-
-
+.processo > h2 {
+    max-width: 76rem;
+    margin-bottom: 1.6rem;
+    font-size: clamp(2.6rem, 3vw, 3.4rem);
+    line-height: 1.3;
+}
+.processo-introducao {
+    margin-bottom: 3.8rem;
+    color: #526b83;
+    font-size: 1.7rem;
+}
+.etapas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2.2rem;
+}
+.etapa {
+    min-width: 0;
+    padding: 2.8rem 2.1rem;
+    background: linear-gradient(145deg, #fff, #edf6ff);
+    border: 0.1rem solid var(--borda);
+    border-top: 0.5rem solid var(--azul);
+    border-radius: 1.8rem;
+    box-shadow: var(--sombra);
+    transition:
+        border-color var(--movimento),
+        box-shadow var(--movimento);
+}
+.numero-etapa {
+    display: grid;
+    place-items: center;
+    width: 5.5rem;
+    height: 5.5rem;
+    margin-bottom: 2.4rem;
+    color: var(--azul);
+    background: #e3f1ff;
+    border-radius: 1.4rem;
+    font-size: 2.7rem;
+    font-weight: 600;
+    transition: transform var(--movimento);
+}
+.etapa h3 {
+    margin-bottom: 1.2rem;
+    font-size: 1.9rem;
+    line-height: 1.3;
+}
+.etapa p {
+    font-size: 1.5rem;
+    line-height: 1.7;
+}
+.aviso {
+    width: min(100%, 80rem);
+    margin: 4rem auto 0;
+    padding: 2.2rem 2.6rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: #eaf4ff;
+    border: 0.1rem solid #b4d6f7;
+    border-radius: 1.6rem;
+}
+.icone-informacao {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 3.8rem;
+    height: 3.8rem;
+    color: white;
+    background: var(--azul);
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.aviso p {
+    font-size: 1.5rem;
+    line-height: 1.65;
+}
 .galeria-robos {
-    box-shadow: 0 0 0 100vmax #ffffff;
-    clip-path: inset(0 -100vmax);
+    display: grid;
+    grid-template-columns: minmax(20rem, 0.8fr) minmax(0, 2fr);
+    gap: 4rem;
+    padding: 7rem max(4rem, calc((100% - 118rem) / 2));
+    background: white;
+    border-top: 0.1rem solid var(--borda);
+}
+.texto-galeria > span {
+    color: var(--azul);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+}
+.texto-galeria h2 {
+    margin-top: 1.8rem;
+    font-size: 3.4rem;
+    line-height: 1.25;
+}
+.traco-titulo,
+.traco-imagem {
+    height: 0.3rem;
+    width: 6rem;
+    background: linear-gradient(90deg, var(--azul), #63d0ec);
+    border-radius: 1rem;
+}
+.traco-titulo {
+    margin-top: 2.4rem;
+}
+.texto-galeria p {
+    margin-top: 2.6rem;
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+.grade-imagens {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+}
+.grade-imagens figure {
+    min-width: 0;
+    padding: 1rem 1rem 2rem;
+    text-align: center;
+    border: 0.1rem solid var(--borda);
+    border-radius: 2rem;
+    background: #f8fbff;
+    transition: box-shadow var(--movimento);
+}
+.grade-imagens img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 1.3rem;
+}
+.grade-imagens figcaption {
+    margin-top: 1.6rem;
+    color: var(--azul-escuro);
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.traco-imagem {
+    margin: 1.2rem auto 0;
+    transform: scaleX(0.65);
+    transition: transform var(--movimento);
+}
+.linha-final {
+    grid-column: 1 / -1;
+    height: 0.1rem;
+    background: linear-gradient(90deg, transparent, #a8c9eb, transparent);
+}
+@media (hover: hover) and (pointer: fine) {
+    .etapa:hover {
+        border-color: #6cadf1;
+        box-shadow: 0 1.6rem 3rem #123f701c;
+    }
+    .etapa:hover .numero-etapa {
+        transform: rotate(-7deg);
+    }
+    .grade-imagens figure:hover {
+        box-shadow: var(--sombra);
+    }
+    .grade-imagens figure:hover .traco-imagem {
+        transform: scaleX(1.2);
+    }
+}
+@media (max-width: 1050px) {
+    .etapas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .galeria-robos {
+        grid-template-columns: 1fr;
+    }
+    .texto-galeria h2 br,
+    .texto-galeria p br {
+        display: none;
+    }
+    .texto-galeria h2 {
+        max-width: 65rem;
+    }
+}
+@media (max-width: 700px) {
+    .texto-banner {
+        width: calc(100% - 4rem);
+    }
+    .robotica-banner {
+        min-height: 46rem;
+    }
+    .robotica-banner::after {
+        background: #041a3dcf;
+    }
+    .processo,
+    .galeria-robos {
+        padding: 4.5rem 2rem;
+    }
+    .etapas {
+        gap: 1.5rem;
+    }
+    .etapa {
+        padding: 2rem 1.6rem;
+    }
+    .aviso {
+        padding: 2rem;
+        gap: 1.4rem;
+    }
+}
+@media (max-width: 480px) {
+    .etapas,
+    .grade-imagens {
+        grid-template-columns: 1fr;
+    }
 }
