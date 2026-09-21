@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre na Arena RoboMundo: desvie dos ataques e use seus conhecimentos de robótica para vencer um minigame educativo.">
+    <title>Quiz · Arena RoboMundo</title>
+    <link rel="icon" href="imagens/icone-tipos.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="quiz.css">
+    <script src="quiz.js" defer></script>
+</head>
+<body class="pagina-quiz">
+<header class="cabecalho">
+        <div class="container cabecalho-conteudo">
+            <a href="index.html">
+                <img class="logo" src="imagens/logo-robomundo.png" alt="Logo RoboMundo">
+            </a>
+
+            <nav class="menu">
+                <a href="index.html">Home</a>
+                <a href="o-que-e-robotica.html">Oque é Robótica</a>
+                <a href="robotica-no-futuro.html">Robótica no Futuro</a>
+                <a href="tipos-de-robo.html">Tipos de Robô</a>
+                <a href="quiz.html" aria-current="page">Quiz</a>
+            </nav>
+        </div>
+    </header>
+    <main class="jogo-container">
+        <div class="jogo-titulo">
+            <div><p class="sobretitulo">EDUTEC / MISSÃO INTERATIVA</p><h1>Arena <span>RoboMundo</span></h1><p>Seus reflexos protegem. Seu conhecimento vence.</p></div>
+            <span class="selo">5 DESAFIOS <i></i> 1 MISSÃO</span>
+        </div>
+        <section class="console" aria-label="Minigame de robótica">
+            <div class="painel-superior">
+                <div class="identidade"><span class="luz"></span><div><strong>ÔMEGA</strong><small>ROBÔ DO MAL</small></div></div>
+                <div class="boss-hud"><div><span>INTEGRIDADE DO CHEFE</span><strong id="boss-valor">100%</strong></div><div id="boss-barra" class="barra-hp" role="progressbar" aria-label="Vida do chefe" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span id="boss-preenchimento"></span></div></div>
+                <div class="ferramentas"><button id="som" class="botao-icon" aria-pressed="false" aria-label="Silenciar sons">Som: ligado</button><button id="pausa" class="botao-icon" disabled>Pausar</button></div>
+            </div>
+            <div class="arena" id="arena">
+                <canvas id="jogo" width="1000" height="500" tabindex="0" aria-label="Arena. Use WASD ou as setas para mover seu robô e Escape para pausar.">Seu navegador precisa oferecer suporte a Canvas para jogar.</canvas>
+                <div class="arena-legenda" aria-hidden="true"><span>LABORATÓRIO 07 / CAMPO DE TESTES</span><span>RM — SISTEMA DE DEFESA</span></div>
+                <div id="aviso-ataque" class="aviso-ataque" role="status"></div>
+                <div id="camada" class="camada">
+                    <section id="tela-inicio" class="tela tela-inicio" aria-labelledby="inicio-titulo">
+                        <span class="etiqueta">CONHECIMENTO É A SUA MELHOR ARMA</span>
+                        <h2 id="inicio-titulo">Pequeno robô.<br><span>Grande missão.</span></h2>
+                        <p>Ômega tomou o laboratório. Sobreviva aos ataques<br>e acerte 5 desafios de robótica para desativá-lo.</p>
+                        <div class="instrucoes"><div><b>WASD / SETAS</b><span>Movimente-se</span></div><div><b>DESVIE</b><span>Proteja suas 3 vidas</span></div><div><b>RESPONDA</b><span>Cause dano no chefe</span></div></div>
+                        <button id="jogar" class="botao-primario">JOGAR <span aria-hidden="true">↗</span></button>
+                        <small>3–5 minutos · Teclado ou toque · Esc para pausar</small>
+                    </section>
+                    <section id="tela-pergunta" class="tela tela-pergunta" aria-labelledby="pergunta-titulo" hidden>
+                        <div class="pergunta-topo"><span class="etiqueta">DESAFIO DE ROBÓTICA</span><span id="pergunta-contador"></span></div>
+                        <h2 id="pergunta-titulo" tabindex="-1"></h2>
+                        <div id="alternativas" class="alternativas"></div>
+                        <div id="feedback" role="status" class="feedback"></div>
+                        <div class="pergunta-rodape"><span id="fonte-pergunta"></span><button id="continuar" class="botao-primario" hidden>Continuar ↗</button></div>
+                    </section>
+                    <section id="tela-pausa" class="tela tela-pausa" aria-labelledby="pausa-titulo" hidden><span class="etiqueta">SISTEMAS EM ESPERA</span><h2 id="pausa-titulo">Respire. A missão espera.</h2><p>A batalha está completamente pausada.</p><button id="retomar" class="botao-primario">Retomar missão ↗</button></section>
+                    <section id="tela-fim" class="tela tela-fim" aria-labelledby="fim-titulo" hidden><span id="fim-etiqueta" class="etiqueta"></span><div id="fim-simbolo" aria-hidden="true"></div><h2 id="fim-titulo"></h2><p id="fim-texto"></p><p id="fim-estatisticas"></p><button id="reiniciar" class="botao-primario">Jogar novamente ↗</button><a href="o-que-e-robotica.html">Revisar o conteúdo do site</a></section>
+                </div>
+            </div>
+            <div class="painel-inferior"><div class="player-hud"><span class="mini-robo" aria-hidden="true">▣</span><div><small>SEU ROBÔ / NEO</small><span id="vidas" aria-label="3 de 3 vidas">♥ ♥ ♥</span></div></div><div class="progresso-missao"><div><span id="fase">FASE 01 / 05</span><span id="tempo-desafio">PRONTO PARA COMEÇAR</span></div><div class="barra-tempo"><span id="tempo-preenchimento"></span></div></div><div class="acertos"><strong id="acertos">0 / 5</strong><small>DESAFIOS CONCLUÍDOS</small></div></div>
+            <div class="controles-toque" aria-label="Controles de movimento"><button data-direcao="ArrowLeft" aria-label="Mover à esquerda">←</button><button data-direcao="ArrowUp" aria-label="Mover para cima">↑</button><button data-direcao="ArrowDown" aria-label="Mover para baixo">↓</button><button data-direcao="ArrowRight" aria-label="Mover à direita">→</button></div>
+        </section>
+        <div class="rodape-jogo"><p><span class="ponto"></span> Observe os avisos no chão antes de cada ataque.</p><p>Acerto: −20% no chefe e +1 vida. Erro: −1 vida, preservando a última.</p></div>
+        <noscript><p class="sem-js">Ative o JavaScript do navegador para jogar o minigame.</p></noscript>
+    </main>
+</body>
+</html>
