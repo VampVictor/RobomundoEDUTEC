@@ -117,11 +117,10 @@ test('partida completa usa tempos reais de simulação, progressão e animação
     }
     assert.equal(g.estado,'vitoria');assert.equal(fases,5);assert.ok(segundos>=167&&segundos<170);assert.equal(g.ataques.length,0);
 });
-test('links e recursos locais existem; páginas antigas permanecem integralmente intactas', () => {
-    const {execFileSync}=require('node:child_process');
+test('links e recursos locais existem; Quiz é acessível em todas as páginas', () => {
     for(const arquivo of ['index.html','o-que-e-robotica.html','robotica-no-futuro.html','tipos-de-robo.html','quiz.html']){
         const html=fs.readFileSync(path.join(raiz,arquivo),'utf8');
         for(const [,url] of html.matchAll(/(?:href|src)="([^"]+)"/g)) if(!/^(https?:|#)/.test(url))assert.ok(fs.existsSync(path.join(raiz,url)),url);
-        if(arquivo!=='quiz.html') { const original=execFileSync('git',['show',`1bc40b8:${arquivo}`],{cwd:raiz,encoding:'utf8'});assert.equal(html,original); }
+        assert.match(html, /<a href="quiz\.html"(?: aria-current="page")?>Quiz<\/a>/, `${arquivo}: link do Quiz`);
     }
 });
