@@ -113,10 +113,12 @@
         iniciarAudio();
         Object.assign(player, { x: 230, y: 250, hp: CONFIG.vidas, imune: 1.5, passo: 0, andando: false });
         Object.assign(boss, { hp: 100, flash: 0 });
-        tempoFase = 0; tempoTotal = 0; duracaoFase = CONFIG.combate;
+        tempoFase = 0; tempoTotal = 0; tempoVisual = 0; duracaoFase = CONFIG.combate;
         esperaAtaque = 2; sequenciaAtaque = 0; erros = 0; tremor = 0;
         ataques = []; particulas = []; resolvidas = new Set(); fila = PERGUNTAS.map((_, i) => i);
         perguntaAtual = 0; perguntasExibidas = new Set(); ultimoFrame = 0;
+        tempoEstadoPausado = 0; estadoAntesPausa = 'combate';
+        ultimaVidaHUD = -1; ultimoHpHUD = -1;
         $('aviso-ataque').textContent = 'SISTEMAS ONLINE · Prepare-se!';
         mostrarTela(null); mudarEstado('combate'); atualizarHUD(); canvas.focus({ preventScroll: true });
     }
@@ -207,8 +209,10 @@
             emitirParticulas(boss.x, boss.y, '#70d8ff', 45); som('acerto');
             detalhe.textContent = 'Núcleo desativado. Seu robô recuperou até 1 ponto de vida.';
         } else {
+            const vidaAntes = player.hp;
             fila.push(perguntaAtual); erros++; player.hp = Math.max(1, player.hp - 1);
-            detalhe.textContent = `${pergunta.explicacao} −1 vida (a última é preservada). Você terá outra chance.`;
+            const penalidade = player.hp < vidaAntes ? '−1 vida.' : 'Sua última vida foi preservada.';
+            detalhe.textContent = `${pergunta.explicacao} ${penalidade} Você terá outra chance.`;
             $('feedback').classList.add('erro'); som('erro');
         }
         $('feedback').replaceChildren(titulo, detalhe);
@@ -339,7 +343,19 @@
 
     // Desenho: robôs e cenário são vetoriais locais, sem downloads de sprites.
     function retangulo(x, y, w, h, raio, cor) {
-        ctx.fillStyle = cor; ctx.beginPath(); ctx.roundRect(x, y, w, h, raio); ctx.fill();
+        ctx.fillStyle = cor; ctx.beginPath();
+        if (typeof ctx.roundRect === 'function') {
+            ctx.roundRect(x, y, w, h, raio);
+        } else {
+            const r = Math.min(raio, Math.abs(w) / 2, Math.abs(h) / 2);
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + w - r, y); ctx.arcTo(x + w, y, x + w, y + r, r);
+            ctx.lineTo(x + w, y + h - r); ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+            ctx.lineTo(x + r, y + h); ctx.arcTo(x, y + h, x, y + h - r, r);
+            ctx.lineTo(x, y + r); ctx.arcTo(x, y, x + r, y, r);
+            ctx.closePath();
+        }
+        ctx.fill();
     }
     function circulo(x, y, raio, cor) { ctx.beginPath(); ctx.arc(x, y, raio, 0, Math.PI * 2); ctx.fillStyle = cor; ctx.fill(); }
     function linha(x1, y1, x2, y2, cor, largura = 1) { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.strokeStyle = cor; ctx.lineWidth = largura; ctx.stroke(); }
